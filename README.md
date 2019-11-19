@@ -1,8 +1,8 @@
-# Getting Started
+# java-learning
 
-### Reference Documentation
-For further reference, please consider the following sections:
+### java-learning介绍
+java-learning是java学习过程中代码的记录，以便日后回顾使用
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.1.7.RELEASE/maven-plugin/)
-
+### 包模块介绍
+- concurrent.threadpool => 并发线程池
+- concurrent.interrupt => 线程中断
