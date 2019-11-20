@@ -35,6 +35,7 @@ public class FutureInterrupt {
 
         @Override
         public void run() {
+            System.out.println("SleepTask执行到了///");
             long start = System.currentTimeMillis();
             while (true) {
                 //执行一分钟
@@ -60,6 +61,7 @@ public class FutureInterrupt {
         @Override
         public void run() {
             try {
+                System.out.println("OneMinuteTask执行到了///");
                 inputStream.read();
             } catch (IOException e) {
                 e.printStackTrace();
