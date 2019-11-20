@@ -32,7 +32,7 @@ public class FlagInterrupt {
     }
 
     public void start() {
-        //new Thread(new Task()).start();
+        //new Thread(new OneMinuteTask()).start();
         new Thread(new MyTask()).start();
     }
 
