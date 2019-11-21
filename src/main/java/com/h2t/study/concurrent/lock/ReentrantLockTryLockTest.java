@@ -16,7 +16,7 @@ public class ReentrantLockTryLockTest {
         //定时获取锁测试
 //        ExecutorService es = Executors.newCachedThreadPool();
 //        for (int i = 0; i < 2; i++) {
-//            es.execute(new Task(i));
+//            es.execute(new SleepTask(i));
 //        }
 
         //中断测试

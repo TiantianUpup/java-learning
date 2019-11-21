@@ -9,13 +9,13 @@ package com.h2t.study.concurrent.interrupt;
  */
 public class SleepBlock {
     public static void main(String[] args) throws InterruptedException {
-        Thread thread = new Thread(new Task());
+        Thread thread = new Thread(new SleepTask());
         thread.start();
         Thread.sleep(3 * 1000);  //睡眠3s
         thread.interrupt();
     }
 
-    public static class Task implements Runnable {
+    public static class SleepTask implements Runnable {
         /**
          * 自定义任务
          */
