@@ -16,14 +16,31 @@ import java.util.concurrent.Future;
 public class FutureInterrupt {
     public static void main(String[] args) throws InterruptedException {
         ExecutorService es = Executors.newCachedThreadPool();
-        Future<?> oneMinutefuture = es.submit(new OneMinuteTask(555));
+        //Future<?> oneMinutefuture = es.submit(new OneMinuteTask(555));
         Future<?> ioFuture = es.submit(new IOTask(System.in));
+        //Future<?> cycleMinute = es.submit(new CycleTask());
+        //Thread.sleep(5 * 1000);
+        //cycleMinute.cancel(true);
         //System.out.println("任务是否已完成： " + future.isDone());
-        oneMinutefuture.cancel(true);
+        //oneMinutefuture.cancel(true);
         ioFuture.cancel(true);
         //System.out.println("任务是否被取消: " + future.isCancelled());
         //如果任务被cancel，该方法返回true
         //System.out.println("任务是否已完成： " + future.isDone());
+    }
+
+    /**
+     * 循环执行任务
+     */
+    public static class CycleTask implements Runnable {
+        int i = 0;
+
+        @Override
+        public void run() {
+            while (true) {
+                System.out.println(i++);
+            }
+        }
     }
 
     public static class OneMinuteTask implements Runnable {
@@ -35,7 +52,6 @@ public class FutureInterrupt {
 
         @Override
         public void run() {
-            System.out.println("SleepTask执行到了///");
             long start = System.currentTimeMillis();
             while (true) {
                 //执行一分钟
@@ -44,6 +60,7 @@ public class FutureInterrupt {
                 }
             }
 
+            System.out.println(String.format("Time Cost = %d", System.currentTimeMillis() - start));
             System.out.println("OneMinuteTask End i= " + i);
         }
     }
@@ -61,7 +78,6 @@ public class FutureInterrupt {
         @Override
         public void run() {
             try {
-                System.out.println("OneMinuteTask执行到了///");
                 inputStream.read();
             } catch (IOException e) {
                 e.printStackTrace();

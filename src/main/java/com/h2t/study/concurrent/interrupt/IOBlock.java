@@ -14,7 +14,7 @@ public class IOBlock {
     public static void main(String[] args) throws InterruptedException {
         Thread thread = new Thread(new IOTask(System.in));  //输入流的来源来自用户输入
         thread.start();
-        Thread.sleep(3 * 1000);  //睡眠3s
+        //Thread.sleep(3 * 1000);  //睡眠3s
         thread.interrupt();
         //System.out.println("是否被中断：" + thread.isInterrupted());
         //System.out.println("中断已执行");
