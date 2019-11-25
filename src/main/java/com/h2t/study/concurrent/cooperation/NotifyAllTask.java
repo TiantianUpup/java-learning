@@ -3,7 +3,7 @@ package com.h2t.study.concurrent.cooperation;
 import java.util.List;
 
 /**
- * TODO Description
+ * notifyAll方法任务类
  *
  * @author hetiantian
  * @version 1.0
