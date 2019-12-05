@@ -2,6 +2,7 @@ package com.h2t.study.api;
 
 import com.h2t.study.api.model.UserPO;
 import com.h2t.study.api.model.UserVO;
+import com.h2t.study.api.model.UserVO2;
 import org.apache.commons.beanutils.PropertyUtils;
 
 import java.lang.reflect.InvocationTargetException;
@@ -32,5 +33,14 @@ public class PropertyUtilsPerformTest {
         userVO1.setName(userPO.getName());
         userVO1.setId(userPO.getId());
         System.out.println("get and set copyProperties cost: " + (System.currentTimeMillis() - start1));
+
+        UserVO2 userVO2 = new UserVO2();
+        long start2 = System.currentTimeMillis();
+        userVO2.setName(userPO.getName());
+        userVO2.setId(userPO.getId());
+        userVO2.setDeleted(userPO.getDeleted());
+        userVO2.setGmtCreate(userPO.getGmtCreate());
+        userVO2.setGmtModified(userPO.getGmtModified());
+        System.out.println("get and set copyProperties cost have same field: " + (System.currentTimeMillis() - start2));
     }
 }

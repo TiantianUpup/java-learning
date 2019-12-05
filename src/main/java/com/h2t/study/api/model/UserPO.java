@@ -57,4 +57,15 @@ public class UserPO {
     public void setGmtModified(Long gmtModified) {
         this.gmtModified = gmtModified;
     }
+
+    @Override
+    public String toString() {
+        return "UserPO{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", deleted=" + deleted +
+                ", gmtCreate=" + gmtCreate +
+                ", gmtModified=" + gmtModified +
+                '}';
+    }
 }
