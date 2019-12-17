@@ -1,7 +1,5 @@
 package com.h2t.study.concurrent.threadpool;
 
-import com.h2t.study.concurrent.threadpool.TrackingExecutor;
-
 import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -45,7 +43,7 @@ public class TrackingExecutorService {
 
     /**
      * 自定义任务
-     * */
+     */
     private class Task implements Runnable {
         int i;
 

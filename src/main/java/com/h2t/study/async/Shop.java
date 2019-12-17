@@ -1,8 +1,6 @@
 package com.h2t.study.async;
 
 import java.util.Random;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.Future;
 
 /**
  * 店铺
@@ -32,33 +30,11 @@ public class Shop {
         this.name = name;
     }
 
-    public Random getRandom() {
-        return random;
-    }
-
-    public void setRandom(Random random) {
-        this.random = random;
-    }
-
     /**
      * 根据产品名查找价格
      */
     public double getPrice(String product) {
         return calculatePrice(product);
-    }
-
-    /**
-     * 异步查询商品的价格
-     */
-    public Future<Double> getPriceAsync(String product) {
-        CompletableFuture<Double> futurePrice = new CompletableFuture<>();
-        //新启一个线程去执行计算价格的操作
-        new Thread(() -> {
-            double price = calculatePrice(product);
-            futurePrice.complete(price);  //将计算结果保存在CompletableFuture中
-        });
-
-        return futurePrice;
     }
 
     /**

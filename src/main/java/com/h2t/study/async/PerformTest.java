@@ -88,7 +88,7 @@ public class PerformTest {
                 .collect(Collectors.toList());
 
         return completableFutureList.stream()
-                .map(CompletableFuture::join)  //获取结果不会抛出结果
+                .map(CompletableFuture::join)  //获取结果不会抛出异常
                 .collect(Collectors.toList());
     }
 
