@@ -2,7 +2,7 @@ package com.h2t.study.async;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
 /**
@@ -31,6 +31,7 @@ public class PerformTest {
         findPriceSyncTest(PRODUCT_NAME);
         findPriceParallelTest(PRODUCT_NAME);
         findPriceAsyncTest(PRODUCT_NAME);
+        findPriceFutureAsyncTest(PRODUCT_NAME);
     }
 
     /**
@@ -96,6 +97,33 @@ public class PerformTest {
         long start = System.currentTimeMillis();
         findPriceAsync(product);
         long end = System.currentTimeMillis();
-        System.out.println("Find Price Async Done in " + (end - start));
+        System.out.println("Find Price CompletableFuture Async Done in " + (end - start));
+    }
+
+    private static List<String> findPriceFutureAsync(String product) {
+        ExecutorService es = Executors.newCachedThreadPool();
+        List<Future<String>> futureList = shopList.stream().map(shop -> es.submit(() -> String.format("%s price is %.2f",
+                shop.getName(), shop.getPrice(product)))).collect(Collectors.toList());
+
+        return futureList.stream()
+                .map(f -> {
+                    String result = null;
+                    try {
+                        result = f.get();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    }
+
+                    return result;
+                }).collect(Collectors.toList());
+    }
+
+    private static void findPriceFutureAsyncTest(String product) {
+        long start = System.currentTimeMillis();
+        findPriceFutureAsync(product);
+        long end = System.currentTimeMillis();
+        System.out.println("Find Price Future Async Done in " + (end - start));
     }
 }
