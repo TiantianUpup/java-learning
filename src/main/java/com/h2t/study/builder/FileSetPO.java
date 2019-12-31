@@ -1,7 +1,7 @@
 package com.h2t.study.builder;
 
 /**
- * TODO Description
+ * FileSetPO实体
  *
  * @author hetiantian
  * @version 1.0
