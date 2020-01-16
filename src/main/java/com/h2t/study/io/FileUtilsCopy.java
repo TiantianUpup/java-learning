@@ -23,5 +23,7 @@ public class FileUtilsCopy {
         }
 
         System.out.println(String.format("FileUtils file copy cost %d msc", System.currentTimeMillis() - start));
+        File targetFile = new File(target);
+        targetFile.delete();
     }
 }

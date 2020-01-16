@@ -10,10 +10,9 @@ import java.nio.channels.FileChannel;
  *
  * @author hetiantian
  * @version 1.0
- * @Date 2020/01/16 14:43
+ * @Date 2020/01/16 18:46
  */
-public class NIOFileCopy {
-
+public class NIOFileCopy2 {
     public static void copyFile(String source, String target) {
         long start = System.currentTimeMillis();
         try (FileChannel input = new FileInputStream(new File(source)).getChannel();
@@ -24,7 +23,5 @@ public class NIOFileCopy {
         }
 
         System.out.println(String.format("NIO file copy cost %d msc", System.currentTimeMillis() - start));
-        File targetFile = new File(target);
-        targetFile.delete();
     }
 }

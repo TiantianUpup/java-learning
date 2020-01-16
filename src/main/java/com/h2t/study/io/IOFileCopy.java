@@ -27,5 +27,8 @@ public class IOFileCopy {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        File targetFile = new File(target);
+        targetFile.delete();
     }
 }
