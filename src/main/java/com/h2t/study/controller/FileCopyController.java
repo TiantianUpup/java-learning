@@ -1,9 +1,6 @@
 package com.h2t.study.controller;
 
-import com.h2t.study.io.FileUtilsCopy;
-import com.h2t.study.io.FilesCopy;
-import com.h2t.study.io.IOFileCopy;
-import com.h2t.study.io.NIOFileCopy;
+import com.h2t.study.io.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,14 +13,16 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class FileCopyController {
-    private static final String source1 = "input/test1.txt";
+    private static final String source = "input/12MB.zip";
+    private static final String source1 = "input/9KB.txt";
     private static final String source2 = "input/test2.txt";
     private static final String source3 = "input/test3.txt";
     private static final String source4 = "input/test4.txt";
-    private static final String target1 = "output/test1.txt";
+    private static final String target1 = "output/9KB.txt";
     private static final String target2 = "output/test2.txt";
     private static final String target3 = "output/test3.txt";
     private static final String target4 = "output/test4.txt";
+    private static final String target = "output/copy.zip";
 
     @GetMapping("/io")
     public Object ioFileCopy() {
@@ -36,6 +35,13 @@ public class FileCopyController {
     public Object nioFileCopy() {
         NIOFileCopy.copyFile(source2, target2);
         caculateTask();
+        return "success";
+    }
+
+    @GetMapping("/nio/memory")
+    public Object nioMemoryFileCopy() {
+        NIOFileCopy2.copyFile(source, target);
+        //caculateTask();
         return "success";
     }
 

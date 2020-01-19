@@ -9,19 +9,20 @@ package com.h2t.study.io;
  */
 public class PerformTest {
 
-    private static final String source1 = "input/test1.txt";
-    private static final String source2 = "input/test2.txt";
-    private static final String source3 = "input/test3.txt";
-    private static final String source4 = "input/test4.txt";
-    private static final String target1 = "output/test1.txt";
-    private static final String target2 = "output/test2.txt";
-    private static final String target3 = "output/test3.txt";
-    private static final String target4 = "output/test4.txt";
+    //    private static final String source1 = "input/9KB.txt";
+    private static final String source = "input/1MB.rar";
+    //    private static final String source2 = "input/test2.txt";
+//    private static final String source3 = "input/test3.txt";
+//    private static final String source4 = "input/test4.txt";
+//    private static final String source5 = "input/test5.txt";
+    private static final String target = "output/copy.rar";
 
     public static void main(String[] args) {
-        IOFileCopy.copyFile(source1, target1);
-        NIOFileCopy.copyFile(source2, target2);
-        FilesCopy.copyFile(source3, target3);
-        FileUtilsCopy.copyFile(source4, target4);
+        IOFileCopy.copyFile(source, target);
+        NIOFileCopy.copyFile(source, target);
+        NIOFileCopy2.copyFile(source, target);
+        FilesCopy.copyFile(source, target);
+        FileUtilsCopy.copyFile(source, target);
+
     }
 }

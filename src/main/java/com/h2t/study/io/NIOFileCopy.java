@@ -6,7 +6,7 @@ import java.io.FileOutputStream;
 import java.nio.channels.FileChannel;
 
 /**
- * NIO流实现文件拷贝【】
+ * NIO流实现文件拷贝【管道】
  *
  * @author hetiantian
  * @version 1.0
