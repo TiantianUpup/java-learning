@@ -11,7 +11,8 @@ import java.io.*;
  */
 public class IOFileCopy {
 
-    private static final int BUFFER_SIZE = 1024;
+    //private static final int BUFFER_SIZE = 1024;
+    private static final int BUFFER_SIZE = 20 * 1024 * 1024;
 
     public static void copyFile(String source, String target) {
         long start = System.currentTimeMillis();

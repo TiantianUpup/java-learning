@@ -13,27 +13,19 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class FileCopyController {
-    private static final String source = "input/12MB.zip";
-    private static final String source1 = "input/9KB.txt";
-    private static final String source2 = "input/test2.txt";
-    private static final String source3 = "input/test3.txt";
-    private static final String source4 = "input/test4.txt";
-    private static final String target1 = "output/9KB.txt";
-    private static final String target2 = "output/test2.txt";
-    private static final String target3 = "output/test3.txt";
-    private static final String target4 = "output/test4.txt";
-    private static final String target = "output/copy.zip";
+    private static final String source = "input/23KB.txt";
+    private static final String target = "output/copy.txt";
 
     @GetMapping("/io")
     public Object ioFileCopy() {
-        IOFileCopy.copyFile(source1, target1);
+        IOFileCopy.copyFile(source, target);
         caculateTask();
         return "success";
     }
 
     @GetMapping("/nio")
     public Object nioFileCopy() {
-        NIOFileCopy.copyFile(source2, target2);
+        NIOFileCopy.copyFile(source, target);
         caculateTask();
         return "success";
     }
@@ -47,14 +39,14 @@ public class FileCopyController {
 
     @GetMapping("/files")
     public Object filesCopy() {
-        FilesCopy.copyFile(source3, target3);
+        FilesCopy.copyFile(source, target);
         caculateTask();
         return "success";
     }
 
     @GetMapping("/file_utils")
     public Object fileUtilsCopy() {
-        FileUtilsCopy.copyFile(source4, target4);
+        FileUtilsCopy.copyFile(source, target);
         caculateTask();
         return "success";
     }

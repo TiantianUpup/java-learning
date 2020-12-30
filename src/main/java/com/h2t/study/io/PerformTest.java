@@ -9,13 +9,13 @@ package com.h2t.study.io;
  */
 public class PerformTest {
 
-    private static final String source = "input/4KB.txt";
+    private static final String source = "input/12MB.zip";
     //    private static final String source = "input/1MB.rar";
     //    private static final String source2 = "input/test2.txt";
 //    private static final String source3 = "input/test3.txt";
 //    private static final String source4 = "input/test4.txt";
 //    private static final String source5 = "input/test5.txt";
-    private static final String target = "output/copy.TXT";
+    private static final String target = "output/copy.zip";
 
     public static void main(String[] args) {
         IOFileCopy.copyFile(source, target);
